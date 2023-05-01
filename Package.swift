@@ -15,7 +15,8 @@ let package = Package(
             targets: ["Boutique"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/mergesort/Bodega.git", exact: Version(2, 0, 2)),
+//        .package(url: "https://github.com/mergesort/Bodega.git", exact: Version(2, 0, 2)),
+        .package(url: "https://github.com/hermiteer/Bodega-SQLite-13.2", branch: "main"),
         .package(url: "https://github.com/apple/swift-collections", from: Version(1, 0, 3)),
         .package(url: "https://github.com/apple/swift-docc-plugin", from: Version(1, 0, 0)),
     ],
@@ -23,7 +24,8 @@ let package = Package(
         .target(
             name: "Boutique",
             dependencies: [
-                .byName(name: "Bodega"),
+//                .byName(name: "Bodega"),
+                .product(name: "Bodega", package: "Bodega-SQLite-13.2"),
                 .product(name: "OrderedCollections", package: "swift-collections")
             ],
             exclude: [
